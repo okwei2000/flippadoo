@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Flippadoo Form Tester</title>
+<link href="createTickit_files/style.css" rel="stylesheet" type="text/css">
+<link href="createTickit_files/jquery.css" rel="stylesheet" type="text/css">
+<script src="createTickit_files/jquery.js"></script>
+<script src="createTickit_files/jquery_002.js"></script>
+<script src="createTickit_files/tickit.js"></script>
+<script type="text/javascript">
+$(function() {
+    $('.Datepicker').datepick();
+
+
+});
+</script>
+
+<script>
+function creatTickitFn()
+{
+	var apiKey = $('#apiKey').val();
+	var url = 'http://dev.tickittaskit.com/flippadoo/mobile/tickitService/'+apiKey+'/createTickit';
+ 	$("#createTickit").attr("action",url);
+
+	$("#createTickit").submit();
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="formContainer">
+        <form name="createTickit" id="createTickit" action="/flippadoo/mobile/tickitService/createTickit" enctype="multipart/form-data" method="post">
+            <div class="header">
+           		 <a href="http://dev.tickittaskit.com/flippadoo/app/home" class="logo">
+		   			 <img src="createTickit_files/logo.png" alt="Home_Logo" width="50">
+				</a>
+            
+            </div>
+            <h2>Flippadoo Form Tester</h2>
+            <dl>
+                <dt>
+                    Tickit Custom ID
+                </dt>
+                <dd>
+                    <input name="tickitCustomId" placeholder="Please enter only 9 digit Number" type="text">
+                    <input name="ownerId" value="1" type="hidden">
+  		    <input name="apiKey" id="apiKey" value="355901361" type="hidden">
+                    <input name="ip" value="http://192.168.1.240:8080" type="hidden">
+                </dd>
+                <div class="borderBTM"></div>
+                <dt>
+                    Tickit Status
+                </dt>
+                <dd>
+                    <select name="tickitStatus">
+                        <option selected="selected" value="1">Unassigned</option>
+                        <option value="2">Assigned</option>
+                        <option value="3">Accepted</option>
+                        <option value="4">Rejected</option>
+                        <option value="5">Transferred</option>
+                        <option value="6">In Progress</option>
+                        <option value="7">Completed</option>
+                        <option value="8">Verified</option>
+                  </select>
+                </dd>
+                <dt>
+                    Tickit Type
+                </dt>
+                <dd>
+                    <select name="tickitType" id="tickitType" onchange="showHideInputBox();">
+                        <option selected="selected" value="11">Parent</option>
+                        <option value="12">Child</option>
+                        <option value="13">Chain</option>
+                    </select>
+                </dd>
+                <div id="parentDiv" style="display:none">
+	                <dt>
+	                    TickitParentID
+	                </dt>
+	                <dd>
+	                    <input name="parentId" placeholder="Please enter only 9 digit Number" type="text">
+	                </dd>
+                </div>
+                <dt>
+                    Recipients
+                </dt>
+                <dd>
+                    <input value="" name="recipient" type="text">
+                    <span class="separate">separate recipients with a semi-colon</span>
+                </dd>
+                <dt>
+                    Subject
+                </dt>
+                <dd>
+                    <input value="" name="subject" required="required" type="text">
+                </dd>
+                <dt>
+                    Message Body
+                </dt>
+                <dd>
+                    <textarea rows="6" name="msgBody"></textarea>
+                </dd>
+                <dt>
+                    Start Date
+                </dt>
+                <dd>
+                    <input value="" name="startDate" class="Datepicker hasDatepick" type="text">
+                </dd>
+                <dt>
+                    End Date
+                </dt>
+                <dd>
+                    <input value="" name="endDate" class="Datepicker hasDatepick" type="text">
+                </dd>
+                <dt>
+                    GPS Coordinates
+                </dt>
+                <dd>
+                    <input value="" name="gps" type="text">
+                </dd>
+                <dt>
+                    Attach a document
+                </dt>
+                <dd>
+                    <input name="tickitFile" type="file">
+                </dd>
+            <dl>
+            <div class="buttonBlock">
+                <button class="submitBTN" onclick="creatTickitFn();">Submit</button>
+            </div>
+        
+    </dl></dl></form></div>
+</div>
+
+</body></html>

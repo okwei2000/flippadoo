@@ -1,0 +1,43 @@
+@charset "utf-8";/* CSS Document */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+* {margin:0px;padding:0px;text-decoration:none;outline: none;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+* html .clearfix {zoom: 1;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+.clr{clear:both}
+body {font-family: 'Open Sans', sans-serif; color: #000}
+.wrapper{width: 900px; margin: 0 auto;}
+
+.formContainer{width: 600px; margin: 30px auto; padding: 0 20px; background: #f1f1eb; border: 1px solid #0071BC; color: #0071BC; font-size: 15px; -moz-box-shadow:   0 0 10px 0 rgba(0,0,0,0.28); box-shadow:  0 0 10px 0 rgba(0,0,0,0.28); -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 5px;}
+.formContainer .header, .formContainer .buttonBlock{background:url(../images/blue_bg.png) repeat-x; height: 65px; margin: 0 -20px;}
+.formContainer h2{font-size: 25px; font-weight: bold; color: #F25620; padding: 10px 0;}
+.formContainer dl dt{padding-top: 10px;}
+.formContainer dl dd{padding-top: 5px;}
+.formContainer dl dd input[type="text"],
+.formContainer dl dd input[type="password"],
+.formContainer dl dd select,
+.formContainer dl dd textarea{padding: 5px 4px; resize: none;}
+.formContainer dl dd select{width: 100%;}
+.formContainer dl dd input[type="text"],.formContainer dl dd input[type="password"], .formContainer dl dd textarea{width: 98%;}
+.formContainer dl dd .separate{display: block; font-size: 11px; margin: 5px 0px 1px 0px; color: #888;}
+.formContainer .buttonBlock{margin-top: 15px;}
+.buttonBlock .submitBTN ,.btnmidArea .submitBTN{background:url(../images/btn_submit.png) no-repeat; font-size: 18px; color: #fff; padding: 1px 0 6px 0px; width: 130px; margin: 15px 0 0 15px; border: none; cursor: pointer;}
+.buttonBlock .submitBTN:hover ,.btnmidArea .submitBTN:hover{background:url(../images/btn_submit_hov.png) no-repeat;}
+.formContainer dl .borderBTM{border-bottom: 1px solid #F25620; margin-top: 15px;}
+.imageView img {width:100px;margin-right:10px;margin-bottom:5px;display:inline-block;}
+
+
+
+
+.btnmidArea  .lgbtn {width: 190px; display: block;}
+.btnmidArea .lgbtn{background:url(../images/btn_submit_lg.png) no-repeat;}
+.btnmidArea .lgbtn:hover{background:url(../images/btn_submit_hov_lg.png) no-repeat;}
+
+.logo{float: left; margin: 5px;}
+
+.formContainer .selectBlock{display: inline-block; width: 47%; margin-right: 15px;}
