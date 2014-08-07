@@ -25,5 +25,6 @@ angular.module('starter', ['ionic'])
       alert('error');
     }
 
+    alert('test');
   });
 })
