@@ -6,7 +6,7 @@ ionicApp.service('geoLocationService', ['$interval', '$cordovaDialogs', '$cordov
 	      start: function ( TimeInterval ) {
 	      	console.log("started");
 	        watchId = $interval(function () {
-	          alert(TimeInterval);
+	          //alert(TimeInterval);
 	          $cordovaGeolocation.getCurrentPosition().then(function(position) {
 									 console.log("Your latitude is " + position.coords.latitude);
 									 console.log("Your latitude is " + position.coords.longitude);

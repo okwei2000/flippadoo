@@ -1,19 +1,21 @@
-var _baseUrl = "http://208.75.75.92:80/flippadoo/mobile/"
+var _baseUrl = "http://dev.tickittaskit.com/flippadoo/mobile/"
 //var _baseUrl = "http://192.168.1.240:8080/flippadoo/mobile/"
 
 
-ionicApp.controller('MainCtrl', function($scope) {
+ionicApp.controller('MainCtrl', function($scope,$rootScope) {
+
  
-});   
+});    
 
 
 ionicApp.controller('HomeTabCtrl', function($scope,$interval,$http,$state, $cordovaGeolocation,$cordovaDialogs,geoLocationService){
 	var gpsAuto = localStorage.getItem("gpsAuto");
-	 alert(gpsAuto);
+	 //alert(gpsAuto);
 	 if (gpsAuto == 'true') {
-		 alert("on");
+		 //alert("on");
 		  $scope.main.pushNotification = { checked: true }
 		 }else{
+			 $scope.main.pushNotification = { checked: false }
 			 localStorage.removeItem("startDate"); 
              localStorage.removeItem("endDate"); 
 			 }

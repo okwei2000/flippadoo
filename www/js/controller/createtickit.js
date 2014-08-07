@@ -11,7 +11,6 @@ $scope.takePicture = function() {
         quality : 15, 
         destinationType : Camera.DestinationType.FILE_URI, 
         sourceType : Camera.PictureSourceType.CAMERA, 
-        allowEdit : true,
         encodingType: Camera.EncodingType.JPEG,
         targetWidth: 100,
         targetHeight: 100,
@@ -32,7 +31,7 @@ $scope.takePicture = function() {
                          console.log("Your Locations ");
                              console.log("Your latitude is " + position.coords.latitude);
                              var locationCord = position.coords.latitude + ";" + position.coords.longitude;
-                    var options = new FileUploadOptions();
+                             var options = new FileUploadOptions();
                                   options.fileKey="tickitFile";
                                   options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
                                  // options.fileName="Ashish";
@@ -47,7 +46,7 @@ $scope.takePicture = function() {
                                        };
 
                                   var userId = JSON.parse(localStorage.getItem("user")).userId;            
-         
+								  var msgBody = document.getElementById("msgbody").value;
                                   var textapiKeyValue = JSON.parse(localStorage.getItem("user")).apiKey;
                                  
                                   var manualTickitUrl = _baseUrl + "tickitService/" + textapiKeyValue +"/createTickit" ;
@@ -61,13 +60,13 @@ $scope.takePicture = function() {
                                                   params.recipient = "chris@abc.com";
                                                   params.subject = "Create ticket";
                                                   params.ip = "192.168.1.217";
-                                                  params.tickitCustomId = null;
-                                                  params.parentId = null;
-                                                  params.msgBody = "This is Test message";
+                                                  //params.tickitCustomId = "55555";
+                                                  //params.parentId = "null";
+                                                  params.msgBody = msgBody;
                                                   params.gps =  locationCord;
                                                   
-                                                  params.startDate = null;
-                                                  params.endDate = null;
+                                                  //params.startDate = null;
+                                                  //params.endDate = null;
                                                   
                               
                                    options.params =  params;
@@ -77,7 +76,7 @@ $scope.takePicture = function() {
 
                                     var ft = new FileTransfer();
                                     ft.upload(imageData, manualTickitUrl, win, fail, options);
-                                        
+                                   
                                         
                                         }, function(err) {
                                           console.log(err);
@@ -94,11 +93,10 @@ $scope.takePicture = function() {
 	      $scope.imageAvailable = false;  
 	}
 	
-  
-});
- function win(r) {
-	
+  function win(r) {
+				
 	          alert("success");
+	           $state.transitionTo('tabs.facts2');    
             console.log("Code = " + r.responseCode);
             console.log("Response = " + r.response);
             console.log("Sent = " + r.bytesSent);
@@ -110,3 +108,6 @@ $scope.takePicture = function() {
             alert("An error has occurred: Code = " + error.code);
             console.log(JSON.stringify(error));
         }
+
+});
+ 

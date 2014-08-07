@@ -22,7 +22,6 @@
 
     <!-- your app's js -->
     
-    
   </head>
   <body ng-controller="MainCtrl as main">
     
@@ -186,13 +185,14 @@
 				  <div class="col col-70 profiledatabd">{{profileData.firstName}} {{profileData.lastName}} as {{profileData.emailId}} using API key   {{profileData.apiKey}} </div>
 			</div>
 			
-				<div>		
+				 <div>		
 					<p>Notes:</p>
-						<div class="item">
-							<textarea>
-							</textarea>
-						  </div>
-				</div>
+						<div>
+						  <label class="item item-input item-stacked-label">
+							<textarea placeholder="Please Enter your note here" id="msgbody"></textarea>
+						  </label>	
+						</div>
+				 </div>
 			
 			<div class="row">
 			  <div class="col col-80">
@@ -314,6 +314,8 @@ ionicApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     });
+    
+    
 var user = localStorage.getItem("user");
  if(!user){
    $urlRouterProvider.otherwise("/tab/home");
@@ -322,12 +324,7 @@ var user = localStorage.getItem("user");
 	}
 })
 
-
-
-
-
-  
-  </script>
+</script>
  <script src= "js/controller/HomeTabCtrl.js"></script>
  <script src= "js/controller/gpsControler.js"></script>
  <script src= "js/controller/HomePage.js"></script>

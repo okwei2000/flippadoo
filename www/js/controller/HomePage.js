@@ -5,7 +5,7 @@ ionicApp.controller('HomePagectrl', function($scope,$interval,$http,$state, $cor
 	}
     
     var TimeInterval = localStorage.getItem("timeInterVal");
-	 alert(TimeInterval);
+	 //alert(TimeInterval);
 	if(TimeInterval == null){
 		//alert("ay");
 		localStorage.setItem("timeInterVal",300000);
@@ -29,8 +29,8 @@ ionicApp.controller('HomePagectrl', function($scope,$interval,$http,$state, $cor
 	}
 	
 	$scope.createTickitManual = function(){
-		
-		$cordovaGeolocation.getCurrentPosition().then(function(position) {
+		//alert("hi");
+		$cordovaGeolocation.getCurrentPosition({desiredAccuracy:10, maxWait:15000, enableHighAccuracy: true}).then(function(position) {
 									 console.log("Your latitude is " + position.coords.latitude);
 									 console.log("Your latitude is " + position.coords.longitude);
 									  var latitudeManual = position.coords.latitude;
