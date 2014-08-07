@@ -6,10 +6,10 @@
         id        = "com.qdev.flippadoo"
         version   = "1.0.0">
 
-    <name>Flippadoo</name>
+    <name>Whami</name>
 
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Convert to Phonegap Build
     </description>
 
     <author href="http://phonegap.com" email="kevin.wei@qdevinc.com">
