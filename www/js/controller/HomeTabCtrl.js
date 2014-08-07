@@ -3,7 +3,6 @@ var _baseUrl = "http://dev.tickittaskit.com/flippadoo/mobile/"
 
 
 ionicApp.controller('MainCtrl', function($scope,$rootScope) {
-
  
 });    
 

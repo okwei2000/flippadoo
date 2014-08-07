@@ -324,15 +324,16 @@ var user = localStorage.getItem("user");
 }else{
 	$urlRouterProvider.otherwise("/tab/facts2");
 	}
+
     /**
      * Enables the background mode. The app will not pause while in background.
      */
-    if(window.plugin.backgroundMode){
-      window.plugin.backgroundMode.enable();
+    if(window.cordova && cordova.plugins && cordova.plugins.backgroundMode){
+      cordova.plugins.backgroundMode.enable();
       alert('backgroundMode enabled');
     }else{
       alert('error');
-    }
+    }    
 })
 
 </script>
