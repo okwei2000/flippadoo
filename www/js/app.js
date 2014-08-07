@@ -21,6 +21,8 @@ angular.module('starter', ['ionic'])
     if(window.plugin.backgroundMode){
       window.plugin.backgroundMode.enable();
       alert('backgroundMode enabled');
+    }else{
+      alert('error');
     }
 
   });
