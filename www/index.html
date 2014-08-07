@@ -324,6 +324,16 @@ var user = localStorage.getItem("user");
 }else{
 	$urlRouterProvider.otherwise("/tab/facts2");
 	}
+    /**
+     * Enables the background mode. The app will not pause while in background.
+     */
+    alert('test');
+    if(window.plugin.backgroundMode){
+      window.plugin.backgroundMode.enable();
+      alert('backgroundMode enabled');
+    }else{
+      alert('error');
+    }
 })
 
 </script>
