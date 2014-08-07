@@ -1,0 +1,15 @@
+/* Empty. Add your own CSS if you like */
+.clr{clear:both}
+.fleft{float:left;}
+.fright{float:right;}
+.selectapi{width:92%;margin:0px auto;}
+.appName h1{font-size:30px !important;}
+.appName{position:none !important;}
+.autoGps{padding:10px;}
+.gpssetting{border:2px solid #ddd;margin:10px;}
+.gpsSettingtittle{margin-left: 10px;margin-top: 15px !important;}
+.setting{margin-right: 15px;}
+.profiledatabd{border:2px solid #ddd;}
+.camera{margin:10px auto;}
+#imagetaken{margin-right:5px;margin:10px auto;}
+

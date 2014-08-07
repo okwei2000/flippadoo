@@ -1,44 +1,337 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+   <!-- cordova script (this will be a 404 during development) -->
+  <script src="http://code.jquery.com/jquery-2.0.0.js"></script> 
+    <script src="ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    
+    
+  </head>
+  <body ng-controller="MainCtrl as main">
+    
+    <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+             
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+
+    <script id="tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-positive tabs-item-hide">
+
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>
+    </script>
+
+    <script id="home.html" type="text/ng-template" >
+      <ion-view title="Whami" hide-back-button="true">
+        <ion-content class="padding">
+          <div class="list list-inset">
+        	  <label class="item item-input">
+        		<input type="text" placeholder="Enter Your Email Id" id="validateEmail" ng-model="main.textValue">
+        	  </label>
+        	</div> 
+          
+        <div class="list list-inset">
+
+  	      <label class="item item-input item-select">
+            <div class="input-label">
+              Select Api Key
             </div>
+  	   
+    				<select id="apiselect" ng-model="main.selectValue">
+                              <option></option>
+            				  <option>111234567</option>
+            				  <option>222234567</option>
+            				  <option>333234567</option>
+							  <option>444234567</option>
+							  <option>333234567</option>
+    				</select>
+          </label>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+	 
+	<div> 
+		<div class="item item-text-wrap">
+				<ul class="list">
+					<li>
+						<div class="list">
+
+							  <div class="item item-button-right">
+								GPS Setting
+								  <a class="button icon ion-gear-a" href="#/tab/facts" ng-click="setdate()";></a>
+						      </div>
+						 </div>
+					</li>
+
+				  <li>
+					
+					 <ion-toggle toggle-class="toggle-positive" ng-model="main.pushNotification.checked" ng-change="pushNotificationChange()">
+								GPS
+					</ion-toggle>
+			
+				  </li>
+
+				</ul>
+				
+		  </div>
+	</div>  
+			<a class="button button-block button-positive" ng-click="login()"> 
+			   Login
+			</a>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="facts.html" type="text/ng-template">
+      <ion-view title="Settings" class="padding">
+        <ion-content>
+            <h3 class="gpsSettingtittle">GPS Setting</h3>
+            <div class="gpssetting">
+              <div class="list list-inset">
+                <label class="item item-input item-select">
+                  <div class="input-label">
+                    Time Interval 
+                  </div>
+                  
+
+                    <select id= "timeInterVal">
+                      <option value="300000"> 5 Mins </option>
+                      <option value="600000"> 10 Minute </option>
+                      <option value="900000"> 15 Mins </option>
+                      <option value="1200000"> 20 Mins </option>
+                    </select>
+                </label>
+              </div>
+              <div class="autoGps">
+            
+                Auto Start GPS
+
+          			  <label class="item item-input">
+                  <span class="input-label">Start Date</span>
+          				<input type="date" ng-model="startDate" id="sdate"/>
+          				
+          			  </label>
+          			  <p>Start Date : {{startDate}}</p>
+          			  <label class="item item-input">
+                  <span class="input-label">End Date</span>
+          				<input type="date" ng-model="endDate" id="edate">
+          			  </label>
+      			        <p>End Date : {{endDate}}</p>
+                      <button class="button button-block button-positive" ng-click="saveDates(startDate , endDate)"/>
+                        Save
+                      </button>
+
+      		    </div>
+            </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="facts2.html" type="text/ng-template">
+      <ion-view title="Home" hide-back-button="true">
+        <ion-content class="padding">
+			<div class="row">
+				  <div class="col">
+					<button class="button button-block button-positive" ng-click="setup()">
+						Setup
+					</button>
+				  </div>
+				  <div class="col col-70 profiledatabd">{{profileData.firstName}} {{profileData.lastName}} as {{profileData.emailId}} using API key   {{profileData.apiKey}} </div>
+			</div>
+            <div>
+			  <button class="button button-block button-positive" ng-click = "createTickitManual()">
+					Whami
+			  </button>
+		   </div>
+		   
+		   <div>
+			  <button class="button button-block button-positive" ng-click = "createTickit()">
+					Camera Whami
+			  </button>
+		   </div>
+        </ion-content>
+      </ion-view>
+    </script>
+    
+    <script id="createticket.html" type="text/ng-template">
+      <ion-view title="Create Tickit">
+        <ion-content class="padding">
+		  <div class="row">
+				  <div class="col">
+					<button class="button button-block button-positive" ng-click="setup1()">
+						Setup
+					</button>
+				  </div>
+				  <div class="col col-70 profiledatabd">{{profileData.firstName}} {{profileData.lastName}} as {{profileData.emailId}} using API key   {{profileData.apiKey}} </div>
+			</div>
+			
+				<div>		
+					<p>Notes:</p>
+						<div class="item">
+							<textarea>
+							</textarea>
+						  </div>
+				</div>
+			
+			<div class="row">
+			  <div class="col col-80">
+				  <button class="button button-block button-positive" ng-click = "sendImage()">
+                     Whami
+                  </button>
+              </div>
+              
+			  <div class="col">
+				 <button class="button icon ion-android-camera camera" ng-click = "takePicture()" ng-show="!imageAvailable"></button>
+				 <img id="imagetaken" src="" ng-show="imageAvailable" width="60px" height="60px"/>
+			  </div>
+			</div>
+			
+			<div class="fright">
+				<button class="button button-small button-assertive" ng-show="imageAvailable" ng-click="deleteImage()">
+				  Clear
+				</button>
+			</div>	
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="about.html" type="text/ng-template">
+      <ion-view title="About">
+        <ion-content class="padding">
+          
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="nav-stack.html" type="text/ng-template">
+      <ion-view title="Tab Nav Stack">
+        <ion-content class="padding">
+         
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="contact.html" type="text/ng-template">
+      <ion-view title="Contact">
+        <ion-content>
+          
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+  
+  <script>
+var ionicApp =   angular.module('ionicApp', ['ionic','ngCordova']);
+
+ionicApp.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home-tab': {
+          templateUrl: "home.html",
+          controller: 'HomeTabCtrl'
+        }
+      }
+    })
+    .state('tabs.facts', {
+      url: "/facts",
+      views: {
+        'home-tab': {
+          templateUrl: "facts.html",
+           controller: 'gpsControler'
+        }
+      }
+    })
+    .state('tabs.facts2', {
+      url: "/facts2",
+      views: {
+        'home-tab': {
+          templateUrl: "facts2.html",
+          controller: 'HomePagectrl'
+        }
+      }
+    })
+    
+    .state('tabs.ticket', {
+      url: "/ticket",
+      views: {
+        'home-tab': {
+          templateUrl: "createticket.html",
+           controller: 'createTickitCtrl' 
+        }
+      }
+    })
+    .state('tabs.about', {
+      url: "/about",
+      views: {
+        'about-tab': {
+          templateUrl: "about.html"
+        }
+      }
+    })
+    .state('tabs.navstack', {
+      url: "/navstack",
+      views: {
+        'about-tab': {
+          templateUrl: "nav-stack.html"
+        }
+      }
+    })
+    .state('tabs.contact', {
+      url: "/contact",
+      views: {
+        'contact-tab': {
+          templateUrl: "contact.html"
+        }
+      }
+    });
+var user = localStorage.getItem("user");
+ if(!user){
+   $urlRouterProvider.otherwise("/tab/home");
+}else{
+	$urlRouterProvider.otherwise("/tab/facts2");
+	}
+})
+
+
+
+
+
+  
+  </script>
+ <script src= "js/controller/HomeTabCtrl.js"></script>
+ <script src= "js/controller/gpsControler.js"></script>
+ <script src= "js/controller/HomePage.js"></script>
+ <script src= "js/controller/createtickit.js"></script>
+  <script src= "js/controller/directive.js"></script>
+
 </html>
