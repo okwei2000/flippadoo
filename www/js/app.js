@@ -15,5 +15,13 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    /**
+     * Enables the background mode. The app will not pause while in background.
+     */
+    if(window.plugin.backgroundMode){
+      window.plugin.backgroundMode.enable();
+      alert('backgroundMode enabled');
+    }
+
   });
 })
