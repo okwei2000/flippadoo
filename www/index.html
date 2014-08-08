@@ -19,6 +19,7 @@
   <script src="http://code.jquery.com/jquery-2.0.0.js"></script> 
     <script src="ng-cordova.js"></script>
     <script src="cordova.js"></script>
+    <script src="background-mode.js"></script>
 
     <!-- your app's js -->
     
@@ -328,8 +329,8 @@ var user = localStorage.getItem("user");
     /**
      * Enables the background mode. The app will not pause while in background.
      */
-    if(window.cordova && cordova.plugins && cordova.plugins.backgroundMode){
-      cordova.plugins.backgroundMode.enable();
+    if(window.plugin && window.plugin.backgroundMode){
+      window.plugin.backgroundMode.enable();
       alert('backgroundMode enabled');
     }else{
       alert('error');
